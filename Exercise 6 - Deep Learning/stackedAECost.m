@@ -62,13 +62,9 @@ groundTruth = full(sparse(labels, 1:M, 1));
 %
 
 % Forward pass to compute activations
-
-
-
 a1 = data;
 a2 = sigmoid(stack{1}.w * a1 + repmat(stack{1}.b, 1, M));
 a3 = sigmoid(stack{2}.w * a2 + repmat(stack{2}.b, 1, M));
-
 
 a4 = softmaxTheta * a3;
 a4 = bsxfun(@minus, a4, max(a4, [], 1));
